@@ -17,16 +17,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>黄逸飞的个人博客</title>
+  <title>UDP的简易实现 - 黄逸飞的个人博客</title>
 
   
-    <meta name="description" content="记录日常，包括编程阅读游戏等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄逸飞的个人博客">
-<meta property="og:url" content="https://yifei-huang-cos.github.io/">
+    <meta name="description" content="PYTHON网络编程——UDP篇一、UDP简介什么是UDP？UDP（用户数据报协议）是一种无连接的传输层协议，具有以下特点：  无需建立连接 不可靠传输（可能丢包） 传输速度快 适合实时性要求高的场景  基本流程对比12TCP编程流程：创建socket → 绑定 → 监听 → 接受连接 → 收发数据 → 关闭UDP编程流程：创建socket → 绑定（服务端）→ 直接收发数据 → 关闭  二、服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UDP的简易实现">
+<meta property="og:url" content="https://yifei-huang-cos.github.io/2026/01/23/">
 <meta property="og:site_name" content="黄逸飞的个人博客">
-<meta property="og:description" content="记录日常，包括编程阅读游戏等">
+<meta property="og:description" content="PYTHON网络编程——UDP篇一、UDP简介什么是UDP？UDP（用户数据报协议）是一种无连接的传输层协议，具有以下特点：  无需建立连接 不可靠传输（可能丢包） 传输速度快 适合实时性要求高的场景  基本流程对比12TCP编程流程：创建socket → 绑定 → 监听 → 接受连接 → 收发数据 → 关闭UDP编程流程：创建socket → 绑定（服务端）→ 直接收发数据 → 关闭  二、服务">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-23T01:00:06.000Z">
+<meta property="article:modified_time" content="2026-01-26T02:13:02.808Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -52,12 +54,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://yifei-huang-cos.github.io","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"name":"黄逸飞的个人博客","description":"记录日常，包括编程阅读游戏等","url":"https://yifei-huang-cos.github.io"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-23T09:00:06+08:00","dateModified":"2026-01-26T10:13:02+08:00","datePublished":"2026-01-23T09:00:06+08:00","description":"","headline":"UDP的简易实现","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/2026/01/23/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/2026/01/23/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">黄逸飞的个人博客</div></a></div></header>
@@ -69,52 +71,165 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">欢迎来访</span></div><div class="widget-body fs14"><p>花径不曾缘客扫，蓬门今始为君开</p>
-</div></widget>
+
 
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2026/01/26/"><span class="title">python网络编程--TCP篇</span></a><a class="item title" href="/2026/01/23/"><span class="title">UDP的简易实现</span></a><a class="item title" href="/2026/01/25/"><span class="title">如何用hexo搭建个人博客</span></a></div></widget>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">黄逸飞的个人博客</div></a></div></header>
 
 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a class="active" href="/">近期发布</a><a href="/categories/">分类</a><a href="/archives/">归档</a><a href="/categories/">分类</a></nav></div></div></div>
-<div class="post-list post"><div class="post-card-wrap"><a class="post-card post" href="/2026/01/26/">
-<article class="md-text"><h2 class="post-title">python网络编程--TCP篇</h2><div class="excerpt"><p>TCP网络编程初步在学习并发编程之前，先熟悉一个客户端与一个服务端
-TCP协议核心机制TCP（传输控制协议）通过三次握手建立连接，通过四次挥手终止连接，确保数据传输的可靠性。
-服务端实现代码123456789101112131415161718192...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2026-01-26T02:00:19.000Z">2026-01-26</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post" href="/2026/01/25/">
-<article class="md-text"><h2 class="post-title">如何用hexo搭建个人博客</h2><div class="excerpt"><p>Hexo 博客搭建与配置指南📖 简介Hexo 是一个快速、简洁且高效的静态博客框架。它使用 Markdown解析文章，在几秒内即可生成静态网页。本指南将帮助您快速搭建并配置一个 Hexo 博客。
-🚀 快速开始环境准备
-安装 Node.js
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-23T01:00:06.000Z">2026-01-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-26T02:13:02.808Z">2026-01-26</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>UDP的简易实现</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="PYTHON网络编程——UDP篇"><a href="#PYTHON网络编程——UDP篇" class="headerlink" title="PYTHON网络编程——UDP篇"></a>PYTHON网络编程——UDP篇</h1><h2 id="一、UDP简介"><a href="#一、UDP简介" class="headerlink" title="一、UDP简介"></a>一、UDP简介</h2><h3 id="什么是UDP？"><a href="#什么是UDP？" class="headerlink" title="什么是UDP？"></a>什么是UDP？</h3><p>UDP（用户数据报协议）是一种无连接的传输层协议，具有以下特点：</p>
+<ul>
+<li>无需建立连接</li>
+<li>不可靠传输（可能丢包）</li>
+<li>传输速度快</li>
+<li>适合实时性要求高的场景</li>
+</ul>
+<h3 id="基本流程对比"><a href="#基本流程对比" class="headerlink" title="基本流程对比"></a>基本流程对比</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TCP编程流程：创建socket → 绑定 → 监听 → 接受连接 → 收发数据 → 关闭</span><br><span class="line">UDP编程流程：创建socket → 绑定（服务端）→ 直接收发数据 → 关闭</span><br></pre></td></tr></table></figure>
 
-版本...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2026-01-25T09:23:37.814Z">2026-01-25</time></span></div></article>
-</a></div><div class="post-card-wrap"><a class="post-card post" href="/2026/01/23/">
-<article class="md-text"><h2 class="post-title">UDP的简易实现</h2><div class="excerpt"><p>PYTHON网络编程——UDP篇一、UDP简介什么是UDP？UDP（用户数据报协议）是一种无连接的传输层协议，具有以下特点：
+<h2 id="二、服务端代码详解"><a href="#二、服务端代码详解" class="headerlink" title="二、服务端代码详解"></a>二、服务端代码详解</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建了一个UDP的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line"><span class="comment"># socket.AF_INET: 使用IPv4地址族</span></span><br><span class="line"><span class="comment"># socket.SOCK_DGRAM: 使用UDP协议（数据报套接字）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 前一个是我的ipv4地址，如果用127.0.0.1则是在本地</span></span><br><span class="line"><span class="comment"># 如果是空字符，服务端绑定到所有的ip地址</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;192.168.100.199&#x27;</span>, <span class="number">6666</span>))</span><br><span class="line"><span class="comment"># bind()方法将套接字绑定到指定地址和端口</span></span><br><span class="line"><span class="comment"># &#x27;192.168.100.199&#x27;: 绑定到特定局域网IP</span></span><br><span class="line"><span class="comment"># 其他选择：</span></span><br><span class="line"><span class="comment">#   &#x27;127.0.0.1&#x27;: 本地回环，只能本机访问</span></span><br><span class="line"><span class="comment">#   &#x27;0.0.0.0&#x27;: 绑定所有网络接口</span></span><br><span class="line"><span class="comment">#   &#x27;&#x27;: 同&#x27;0.0.0.0&#x27;</span></span><br><span class="line"><span class="comment"># 6666: 端口号，范围0-65535（0-1023为系统保留）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># msg是收到的数据，addr是源地址和端口号</span></span><br><span class="line">    msg, addr = server_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="comment"># recvfrom()是阻塞方法，会一直等待直到收到数据</span></span><br><span class="line">    <span class="comment"># 1024: 缓冲区大小，单位字节</span></span><br><span class="line">    <span class="comment"># msg: 接收到的字节数据</span></span><br><span class="line">    <span class="comment"># addr: 元组 (客户端IP, 客户端端口)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> msg.decode(<span class="string">&#x27;utf8&#x27;</span>) == <span class="string">&#x27;quit&#x27;</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 如果客户端发送&#x27;quit&#x27;，则退出循环</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;来自IP：<span class="subst">&#123;addr[<span class="number">0</span>]&#125;</span>,端口号：<span class="subst">&#123;addr[<span class="number">1</span>]&#125;</span>的消息：<span class="subst">&#123;msg&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="comment"># 显示消息来源和内容</span></span><br><span class="line"></span><br><span class="line">    send_msg = <span class="built_in">input</span>(<span class="string">&#x27;服务端&gt;&gt;&#x27;</span>)</span><br><span class="line">    <span class="comment"># 等待用户输入回复内容</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 不能发送字符串，应该是字节数据</span></span><br><span class="line">    server_socket.sendto(send_msg.encode(<span class="string">&#x27;utf8&#x27;</span>), addr)</span><br><span class="line">    <span class="comment"># sendto()发送数据到指定地址</span></span><br><span class="line">    <span class="comment"># encode(&#x27;utf8&#x27;): 将字符串转为字节数据</span></span><br><span class="line">    <span class="comment"># addr: 目标地址（这里发回给原客户端）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># close</span></span><br><span class="line">server_socket.close()</span><br><span class="line"><span class="comment"># 关闭套接字，释放资源</span></span><br></pre></td></tr></table></figure>
 
-无需建立连接
-不可靠传输（可能丢包）
-传输速度快
-适合实时性要求高的场景
+<h2 id="三、客户端代码详解"><a href="#三、客户端代码详解" class="headerlink" title="三、客户端代码详解"></a>三、客户端代码详解</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建了一个UDP的socket对象</span></span><br><span class="line">client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 客户端socket不用bind</span></span><br><span class="line"><span class="comment"># 客户端通常由系统自动分配端口号</span></span><br><span class="line"><span class="comment"># 如果需要绑定特定端口，也可以使用bind()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># send msg</span></span><br><span class="line">    send_msg = <span class="built_in">input</span>(<span class="string">&#x27;客户端&gt;&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> send_msg == <span class="string">&#x27;quit&#x27;</span>:</span><br><span class="line">        <span class="keyword">break</span>  <span class="comment"># 输入&#x27;quit&#x27;退出</span></span><br><span class="line">    </span><br><span class="line">    client_socket.sendto(send_msg.encode(<span class="string">&#x27;utf8&#x27;</span>), (<span class="string">&#x27;192.168.100.199&#x27;</span>, <span class="number">6666</span>))</span><br><span class="line">    <span class="comment"># 发送数据到服务器</span></span><br><span class="line">    <span class="comment"># (&#x27;192.168.100.199&#x27;, 6666): 服务器地址和端口</span></span><br><span class="line">    <span class="comment"># 必须与服务器绑定的地址一致</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># receive msg</span></span><br><span class="line">    msg, addr = client_socket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    <span class="comment"># 等待服务器回复</span></span><br><span class="line">    <span class="comment"># 注意：这里会阻塞，直到收到服务器响应</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;来自服务端IP：<span class="subst">&#123;addr[<span class="number">0</span>]&#125;</span>,端口号：<span class="subst">&#123;addr[<span class="number">1</span>]&#125;</span>的消息：<span class="subst">&#123;msg&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="comment"># 显示服务器回复</span></span><br><span class="line"></span><br><span class="line">client_socket.close()</span><br><span class="line"><span class="comment"># 关闭客户端套接字</span></span><br></pre></td></tr></table></figure>
 
-基本流程对比12TCP编程流程：创建socke...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2026-01-23T01:00:06.000Z">2026-01-23</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>编程</span></span></div></article>
-</a></div></div>
+<h2 id="四、关键知识点"><a href="#四、关键知识点" class="headerlink" title="四、关键知识点"></a>四、关键知识点</h2><h3 id="1-UDP套接字创建"><a href="#1-UDP套接字创建" class="headerlink" title="1. UDP套接字创建"></a>1. UDP套接字创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>AF_INET</code>: IPv4地址族</li>
+<li><code>SOCK_DGRAM</code>: UDP数据报类型</li>
+</ul>
+<h3 id="2-地址绑定"><a href="#2-地址绑定" class="headerlink" title="2. 地址绑定"></a>2. 地址绑定</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端必须绑定，客户端可选</span></span><br><span class="line">server_socket.bind((IP地址, 端口号))</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-数据收发"><a href="#3-数据收发" class="headerlink" title="3. 数据收发"></a>3. 数据收发</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接收数据（返回数据和来源地址）</span></span><br><span class="line">data, addr = socket.recvfrom(缓冲区大小)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送数据到指定地址</span></span><br><span class="line">socket.sendto(字节数据, (目标IP, 目标端口))</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-编码转换"><a href="#4-编码转换" class="headerlink" title="4. 编码转换"></a>4. 编码转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 发送：字符串 → 字节</span></span><br><span class="line">send_msg.encode(<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收：字节 → 字符串</span></span><br><span class="line">msg.decode(<span class="string">&#x27;utf8&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、注意事项"><a href="#五、注意事项" class="headerlink" title="五、注意事项"></a>五、注意事项</h2><ol>
+<li><p><strong>UDP是无连接的</strong></p>
+<ul>
+<li>每次发送都要指定目标地址</li>
+<li>不保证数据顺序和可靠性</li>
+</ul>
+</li>
+<li><p><strong>地址和端口</strong></p>
+<ul>
+<li>服务端需要固定端口</li>
+<li>客户端端口通常由系统分配</li>
+</ul>
+</li>
+<li><p><strong>数据大小</strong></p>
+<ul>
+<li>UDP数据包不宜过大（通常&lt;1500字节）</li>
+<li>避免IP分片，提高传输效率</li>
+</ul>
+</li>
+<li><p><strong>阻塞问题</strong></p>
+<ul>
+<li><code>recvfrom()</code>是阻塞调用</li>
+<li>程序会等待直到收到数据</li>
+</ul>
+</li>
+<li><p><strong>多客户端处理</strong></p>
+<ul>
+<li>UDP服务端可以同时处理多个客户端</li>
+<li>通过addr区分不同客户端</li>
+</ul>
+</li>
+</ol>
+<h2 id="六、常见问题"><a href="#六、常见问题" class="headerlink" title="六、常见问题"></a>六、常见问题</h2><h3 id="Q1-为什么客户端不需要bind？"><a href="#Q1-为什么客户端不需要bind？" class="headerlink" title="Q1: 为什么客户端不需要bind？"></a>Q1: 为什么客户端不需要bind？</h3><p>A: 客户端第一次调用sendto()时，系统会自动分配一个可用端口。</p>
+<h3 id="Q2-如果服务器没启动，客户端会怎样？"><a href="#Q2-如果服务器没启动，客户端会怎样？" class="headerlink" title="Q2: 如果服务器没启动，客户端会怎样？"></a>Q2: 如果服务器没启动，客户端会怎样？</h3><p>A: 客户端发送的数据会丢失，recvfrom()会一直等待（阻塞）。</p>
+<h3 id="Q3-如何测试本机通信？"><a href="#Q3-如何测试本机通信？" class="headerlink" title="Q3: 如何测试本机通信？"></a>Q3: 如何测试本机通信？</h3><p>A: 服务端绑定<code>127.0.0.1</code>，客户端连接<code>127.0.0.1</code>。</p>
+<h3 id="Q4-如何让其他电脑连接？"><a href="#Q4-如何让其他电脑连接？" class="headerlink" title="Q4: 如何让其他电脑连接？"></a>Q4: 如何让其他电脑连接？</h3><p>A: </p>
+<ol>
+<li>服务端绑定<code>0.0.0.0</code>或局域网IP</li>
+<li>关闭防火墙或开放对应端口</li>
+<li>客户端使用服务器实际IP地址</li>
+</ol>
+<h2 id="七、完整的UDP还需要"><a href="#七、完整的UDP还需要" class="headerlink" title="七、完整的UDP还需要"></a>七、完整的UDP还需要</h2><ol>
+<li><strong>异常处理</strong>：添加try-except处理网络错误</li>
+<li><strong>超时设置</strong>：使用settimeout()避免永久阻塞</li>
+<li><strong>多线程</strong>：同时处理多个客户端请求</li>
+<li><strong>数据验证</strong>：添加简单的协议头验证数据完整性</li>
+</ol>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>​      UDP编程的核心模式：</p>
+<ul>
+<li>服务端：创建→绑定→循环收发→关闭</li>
+<li>客户端：创建→循环收发→关闭</li>
+</ul>
+<p>这种简单的请求-响应模式是UDP编程的基础，理解了这种模式后，可以在此基础上构建更复杂的UDP应用。</p>
+<hr>
+<p><em>注：实际使用时，请确保服务端和客户端的IP地址和端口号配置正确，防火墙已开放相应端口。</em></p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2026/01/25/">如何用hexo搭建个人博客</a></div><div class="item" id="next"></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>评论区</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="yifei-Huang-cos/yifei-Huang-cos.github.io" data-repo-id="R_kgDORAH87Q" data-category="Announcements" data-category-id="DIC_kwDORAH87c4C1XAz" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
 
 
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">黄逸飞</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">欢迎来访</span></div><div class="widget-body fs14"><p>花径不曾缘客扫，蓬门今始为君开</p>
-</div></widget>
 
-<widget class="widget-wrapper user-card ghuser"><div class="widget-body data-service ds-ghinfo" data-api="https://api.github.com/users/Yifei-Huang-cos"><div class="avatar" ><img no-lazy type="img" id="avatar_url" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><p class="username" type="text" id="name">&nbsp;</p><p class="bio" type="text" id="bio">&nbsp;</p><div class="buttons"><a class="btn" target="_blank" rel="noopener" href="https://github.com/Yifei-Huang-cos?tab=followers"><span class="title" type="text" id="followers">0</span><span class="desc">followers</span></a><a class="btn" target="_blank" rel="noopener" href="https://github.com/Yifei-Huang-cos?tab=following"><span class="title" type="text" id="following">0</span><span class="desc">following</span></a><a class="btn" target="_blank" rel="noopener" href="https://github.com/Yifei-Huang-cos?tab=repositories"><span class="title" type="text" id="public_repos">0</span><span class="desc">repos</span></a></div><a class="follow" target="_blank" rel="noopener" href="https://github.com/Yifei-Huang-cos"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>Follow</a></div></widget>
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2026/01/26/"><span class="title">python网络编程--TCP篇</span></a><a class="item title" href="/2026/01/23/"><span class="title">UDP的简易实现</span></a><a class="item title" href="/2026/01/25/"><span class="title">如何用hexo搭建个人博客</span></a></div></widget>
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PYTHON%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94UDP%E7%AF%87"><span class="toc-text">PYTHON网络编程——UDP篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81UDP%E7%AE%80%E4%BB%8B"><span class="toc-text">一、UDP简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFUDP%EF%BC%9F"><span class="toc-text">什么是UDP？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E5%AF%B9%E6%AF%94"><span class="toc-text">基本流程对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="toc-text">二、服务端代码详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="toc-text">三、客户端代码详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%85%B3%E9%94%AE%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">四、关键知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-UDP%E5%A5%97%E6%8E%A5%E5%AD%97%E5%88%9B%E5%BB%BA"><span class="toc-text">1. UDP套接字创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9C%B0%E5%9D%80%E7%BB%91%E5%AE%9A"><span class="toc-text">2. 地址绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E6%94%B6%E5%8F%91"><span class="toc-text">3. 数据收发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2"><span class="toc-text">4. 编码转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">五、注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">六、常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8D%E9%9C%80%E8%A6%81bind%EF%BC%9F"><span class="toc-text">Q1: 为什么客户端不需要bind？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-%E5%A6%82%E6%9E%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B2%A1%E5%90%AF%E5%8A%A8%EF%BC%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-text">Q2: 如果服务器没启动，客户端会怎样？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3-%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E6%9C%AC%E6%9C%BA%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-text">Q3: 如何测试本机通信？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4-%E5%A6%82%E4%BD%95%E8%AE%A9%E5%85%B6%E4%BB%96%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%EF%BC%9F"><span class="toc-text">Q4: 如何让其他电脑连接？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%8C%E6%95%B4%E7%9A%84UDP%E8%BF%98%E9%9C%80%E8%A6%81"><span class="toc-text">七、完整的UDP还需要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">八、总结</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -128,7 +243,7 @@ TCP协议核心机制TCP（传输控制协议）通过三次握手建立连接�
 
 <script type="text/javascript">
   window.canonical = {"closeEnable":true,"closeText":"关闭提示","originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":null,"checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://yifei-huang-cos.github.io/2026/01/23/","checklink":"/js/plugins/video.js"};
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -612,6 +727,30 @@ TCP协议核心机制TCP（传输控制协议）通过三次握手建立连接�
 
 
 <!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
 
 
 
