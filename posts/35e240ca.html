@@ -28,7 +28,7 @@
 <meta property="og:description" content="PYTHON网络编程——UDP篇一、UDP简介什么是UDP？UDP（用户数据报协议）是一种无连接的传输层协议，具有以下特点：  无需建立连接 不可靠传输（可能丢包） 传输速度快 适合实时性要求高的场景  基本流程对比12TCP编程流程：创建socket → 绑定 → 监听 → 接受连接 → 收发数据 → 关闭UDP编程流程：创建socket → 绑定（服务端）→ 直接收发数据 → 关闭  二、服务">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-23T01:00:06.000Z">
-<meta property="article:modified_time" content="2026-01-26T02:17:58.511Z">
+<meta property="article:modified_time" content="2026-01-26T02:29:46.613Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-23T09:00:06+08:00","dateModified":"2026-01-26T10:17:58+08:00","datePublished":"2026-01-23T09:00:06+08:00","description":"","headline":"UDP的简易实现","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/35e240ca"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/35e240ca","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-23T09:00:06+08:00","dateModified":"2026-01-26T10:29:46+08:00","datePublished":"2026-01-23T09:00:06+08:00","description":"","headline":"UDP的简易实现","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/35e240ca"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/35e240ca","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
@@ -99,7 +99,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-23T01:00:06.000Z">2026-01-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-26T02:17:58.511Z">2026-01-26</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-23T01:00:06.000Z">2026-01-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-26T02:29:46.613Z">2026-01-26</time></span></div></div></div>
     
     <div class="bottom only-title">
       
