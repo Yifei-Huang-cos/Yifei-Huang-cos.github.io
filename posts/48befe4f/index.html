@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,18 +17,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>归档 - 黄逸飞的个人博客</title>
+  <title>刚体运动的python解法 - 黄逸飞的个人博客</title>
 
   
-    <meta name="description" content="记录日常，包括编程阅读游戏等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://yifei-huang-cos.github.io/archives/">
+    <meta name="description" content="自由转动杆与铰链固定杆倾倒时间对比研究一、问题背景​	某p大友人中午问了我一个问题    曾经自诩“高中物理领域神棍”的我也是体会了一把修为尽失的感觉…….可恶，还是，做不到吗。。。 才怪！现在我有了新的武器，解析不了我就暴力数值解嘻嘻 二、物理模型2.1 自由杆（光滑地面） 约束条件：底端无水平约束，质心水平方向动量守恒 运动特点：质心同时有平动和转动 能量方程：$E &#x3D; \frac{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刚体运动的python解法">
+<meta property="og:url" content="https://yifei-huang-cos.github.io/posts/48befe4f/">
 <meta property="og:site_name" content="黄逸飞的个人博客">
-<meta property="og:description" content="记录日常，包括编程阅读游戏等">
+<meta property="og:description" content="自由转动杆与铰链固定杆倾倒时间对比研究一、问题背景​	某p大友人中午问了我一个问题    曾经自诩“高中物理领域神棍”的我也是体会了一把修为尽失的感觉…….可恶，还是，做不到吗。。。 才怪！现在我有了新的武器，解析不了我就暴力数值解嘻嘻 二、物理模型2.1 自由杆（光滑地面） 约束条件：底端无水平约束，质心水平方向动量守恒 运动特点：质心同时有平动和转动 能量方程：$E &#x3D; \frac{">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\hyf\Pictures\%E5%88%9A%E4%BD%93%E5%8A%A8%E5%8A%9B.png">
+<meta property="og:image" content="c:\Users\hyf\Pictures\deepseek%E4%BD%A0%E5%9C%A8%E5%B9%B2%E5%98%9B.jpg">
+<meta property="og:image" content="c:\Users\hyf\Pictures\gpt%E5%A4%A7%E4%BA%BA%E6%98%AF%E4%BD%95%E6%84%8F%E4%B8%BA.jpg">
+<meta property="article:published_time" content="2026-01-26T08:53:00.000Z">
+<meta property="article:modified_time" content="2026-01-26T09:29:41.106Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\hyf\Pictures\%E5%88%9A%E4%BD%93%E5%8A%A8%E5%8A%9B.png">
   
   
   
@@ -52,12 +58,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://yifei-huang-cos.github.io","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"name":"黄逸飞的个人博客","description":"记录日常，包括编程阅读游戏等","url":"https://yifei-huang-cos.github.io"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-26T16:53:00+08:00","dateModified":"2026-01-26T17:29:41+08:00","datePublished":"2026-01-26T16:53:00+08:00","description":"","headline":"刚体运动的python解法","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/48befe4f/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/48befe4f/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">黄逸飞的个人博客</div></a></div></header>
@@ -69,24 +75,209 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">欢迎来访</span></div><div class="widget-body fs14"><p>花径不曾缘客扫，蓬门今始为君开</p>
-</div></widget>
+
 
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/48befe4f/"><span class="title">刚体运动的python解法</span></a><a class="item title" href="/posts/cd1cb590/"><span class="title">如何用hexo搭建个人博客</span></a><a class="item title" href="/posts/35e240ca/"><span class="title">UDP的简易实现</span></a><a class="item title" href="/posts/8d64c14e/"><span class="title">python网络编程--TCP篇</span></a></div></widget>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">黄逸飞的个人博客</div></a></div></header>
-
- 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a class="active" href="/archives/">归档</a><a href="/categories/">分类</a></nav></div></div></div><div class="post-list archives"><article class="" id="archive"><div class='archive-header h4'>2026</div><div class="archive-list"><a class='post fs14' href="/posts/48befe4f/"><time>01-26</time><span>刚体运动的python解法</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/8d64c14e/"><time>01-26</time><span>python网络编程--TCP篇</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/35e240ca/"><time>01-23</time><span>UDP的简易实现</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/cd1cb590/"><time>01-21</time><span>如何用hexo搭建个人博客</span></a></div></article></div>
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-26T08:53:00.000Z">2026-01-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-26T09:29:41.106Z">2026-01-26</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>刚体运动的python解法</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="自由转动杆与铰链固定杆倾倒时间对比研究"><a href="#自由转动杆与铰链固定杆倾倒时间对比研究" class="headerlink" title="自由转动杆与铰链固定杆倾倒时间对比研究"></a><strong>自由转动杆与铰链固定杆倾倒时间对比研究</strong></h1><h2 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h2><p>​	某p大友人中午问了我一个问题</p>
+<img src="C:\Users\hyf\Pictures\刚体动力.png"  />
+
+<hr>
+<p>曾经自诩“高中物理领域神棍”的我也是体会了一把修为尽失的感觉…….可恶，还是，做不到吗。。。</p>
+<p>才怪！现在我有了新的武器，解析不了我就暴力数值解嘻嘻</p>
+<h2 id="二、物理模型"><a href="#二、物理模型" class="headerlink" title="二、物理模型"></a>二、物理模型</h2><h3 id="2-1-自由杆（光滑地面）"><a href="#2-1-自由杆（光滑地面）" class="headerlink" title="2.1 自由杆（光滑地面）"></a>2.1 自由杆（光滑地面）</h3><ul>
+<li><strong>约束条件</strong>：底端无水平约束，质心水平方向动量守恒</li>
+<li><strong>运动特点</strong>：质心同时有平动和转动</li>
+<li><strong>能量方程</strong>：$E &#x3D; \frac{1}{2}mv_c^2 + \frac{1}{2}I_c\omega^2 + mg\frac{L}{2}\cos\theta$</li>
+</ul>
+<h3 id="2-2-铰链杆（固定底端）"><a href="#2-2-铰链杆（固定底端）" class="headerlink" title="2.2 铰链杆（固定底端）"></a>2.2 铰链杆（固定底端）</h3><ul>
+<li><strong>约束条件</strong>：底端位置固定，绕该点纯转动</li>
+<li><strong>运动特点</strong>：质心作圆弧运动</li>
+<li><strong>能量方程</strong>：$E &#x3D; \frac{1}{2}I_o\omega^2 + mg\frac{L}{2}\cos\theta$</li>
+</ul>
+<hr>
+<h2 id="三、动力学方程推导"><a href="#三、动力学方程推导" class="headerlink" title="三、动力学方程推导"></a>三、动力学方程推导</h2><h3 id="3-1-自由杆的倾倒时间"><a href="#3-1-自由杆的倾倒时间" class="headerlink" title="3.1 自由杆的倾倒时间"></a>3.1 自由杆的倾倒时间</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自由杆的角速度公式推导</span></span><br><span class="line">ω² = (4g/L) * (cosθ₀ - cosθ)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-铰链杆的倾倒时间"><a href="#3-2-铰链杆的倾倒时间" class="headerlink" title="3.2 铰链杆的倾倒时间"></a>3.2 铰链杆的倾倒时间</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 铰链杆的角速度公式推导</span></span><br><span class="line">ω² = (3g/L) * (cosθ₀ - cosθ)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、数值计算方法"><a href="#四、数值计算方法" class="headerlink" title="四、数值计算方法"></a>四、数值计算方法</h2><h3 id="4-1-时间积分公式"><a href="#4-1-时间积分公式" class="headerlink" title="4.1 时间积分公式"></a>4.1 时间积分公式</h3><p>倾倒时间通过对角速度倒数积分得到：<br>$$ t &#x3D; \int_{\theta_0}^{\pi&#x2F;2} \frac{1}{\omega(\theta)} d\theta $$</p>
+<h3 id="4-2-数值实现代码"><a href="#4-2-数值实现代码" class="headerlink" title="4.2 数值实现代码"></a>4.2 数值实现代码</h3><h4 id="自由杆计算代码"><a href="#自由杆计算代码" class="headerlink" title="自由杆计算代码"></a>自由杆计算代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">g = <span class="number">9.81</span></span><br><span class="line">L = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入杆长 L (米): &quot;</span>))</span><br><span class="line">theta0_deg = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入初始倾斜角度 (0–90°, 相对竖直): &quot;</span>))</span><br><span class="line"></span><br><span class="line">theta0 = np.deg2rad(theta0_deg)</span><br><span class="line">theta_end = np.pi / <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">integrand</span>(<span class="params">theta</span>):</span><br><span class="line">    omega = np.sqrt((<span class="number">4</span> * g / L) * (np.cos(theta0) - np.cos(theta)))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span> / omega</span><br><span class="line"></span><br><span class="line">thetas = np.linspace(theta0 + <span class="number">1e-6</span>, theta_end, <span class="number">200000</span>)</span><br><span class="line">t = np.trapezoid(integrand(thetas), thetas)</span><br></pre></td></tr></table></figure>
+
+<h4 id="铰链杆计算代码"><a href="#铰链杆计算代码" class="headerlink" title="铰链杆计算代码"></a>铰链杆计算代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">g = <span class="number">9.81</span></span><br><span class="line">L = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入杆长 L (米): &quot;</span>))</span><br><span class="line">theta0_deg = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入初始倾斜角度 (0–90°, 相对竖直): &quot;</span>))</span><br><span class="line"></span><br><span class="line">theta0 = np.deg2rad(theta0_deg)</span><br><span class="line">theta_end = np.pi / <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">integrand</span>(<span class="params">theta</span>):</span><br><span class="line">    omega = np.sqrt((<span class="number">3</span> * g / L) * (np.cos(theta0) - np.cos(theta)))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span> / omega</span><br><span class="line"></span><br><span class="line">thetas = np.linspace(theta0 + <span class="number">1e-6</span>, theta_end, <span class="number">200000</span>)</span><br><span class="line">t = np.trapezoid(integrand(thetas), thetas)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、模拟结果分析"><a href="#五、模拟结果分析" class="headerlink" title="五、模拟结果分析"></a>五、模拟结果分析</h2><h4 id="5-1-不同初始角度对比（默认杆长1m）"><a href="#5-1-不同初始角度对比（默认杆长1m）" class="headerlink" title="5.1 不同初始角度对比（默认杆长1m）"></a>5.1 不同初始角度对比（默认杆长1m）</h4><table>
+<thead>
+<tr>
+<th>初始角度</th>
+<th>自由杆时间(s)</th>
+<th>铰链杆时间(s)</th>
+<th>时间比(自由&#x2F;铰链)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1°</td>
+<td>1.1837</td>
+<td>1.3668</td>
+<td>想算的自己算</td>
+</tr>
+<tr>
+<td>10°</td>
+<td>0.6648</td>
+<td>0.7676</td>
+<td></td>
+</tr>
+<tr>
+<td>30°</td>
+<td>0.4163</td>
+<td>0.4807</td>
+<td>(—&gt; __  —&gt;)</td>
+</tr>
+<tr>
+<td>45°</td>
+<td>0.3201</td>
+<td>0.3697</td>
+<td></td>
+</tr>
+<tr>
+<td>60°</td>
+<td>0.2431</td>
+<td>0.2807</td>
+<td></td>
+</tr>
+<tr>
+<td>80°</td>
+<td>0.1338</td>
+<td>0.1545</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5-2-不同杆长对比（默认倾斜30°）"><a href="#5-2-不同杆长对比（默认倾斜30°）" class="headerlink" title="5.2 不同杆长对比（默认倾斜30°）"></a>5.2 不同杆长对比（默认倾斜30°）</h3><table>
+<thead>
+<tr>
+<th>杆长(m)</th>
+<th>自由杆时间(s)</th>
+<th>铰链杆时间(s)</th>
+<th>时间比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.5</td>
+<td>0.2944</td>
+<td>0.3399</td>
+<td></td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>0.4163</td>
+<td>0.4807</td>
+<td></td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>0.5888</td>
+<td>0.6799</td>
+<td></td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>0.9309</td>
+<td>1.0750</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、结论"><a href="#六、结论" class="headerlink" title="六、结论"></a>六、结论</h2><p>自由杆下落更快！</p>
+<p>但原因是什么呢</p>
+<p>有没有能给我推导过程的QAQ</p>
+<p>在线等~</p>
+<hr>
+<h2 id="附录：论AI目前为什么不能取代人类"><a href="#附录：论AI目前为什么不能取代人类" class="headerlink" title="附录：论AI目前为什么不能取代人类"></a>附录：论AI目前为什么不能取代人类</h2><p>请看vcr</p>
+<p>1.《有固定点，小角度？那就是简谐运动！》————来自亲爱的deepseek</p>
+<p><img src="C:\Users\hyf\Pictures\deepseek你在干嘛.jpg"></p>
+<p>2.《什么是物理，我听不懂，倾斜的杆子就是不会掉下来，牛顿说啥我不管》 </p>
+<p>————GPT5 plus大人！\0&#x2F;</p>
+<p><img src="C:\Users\hyf\Pictures\gpt大人是何意为.jpg"></p>
+<hr>
+<p>建议加入ai笑话大全~</p>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/8d64c14e/">python网络编程--TCP篇</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>评论区</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="yifei-Huang-cos/yifei-Huang-cos.github.io" data-repo-id="R_kgDORAH87Q" data-category="Announcements" data-category-id="DIC_kwDORAH87c4C1XAz" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">黄逸飞</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E7%94%B1%E8%BD%AC%E5%8A%A8%E6%9D%86%E4%B8%8E%E9%93%B0%E9%93%BE%E5%9B%BA%E5%AE%9A%E6%9D%86%E5%80%BE%E5%80%92%E6%97%B6%E9%97%B4%E5%AF%B9%E6%AF%94%E7%A0%94%E7%A9%B6"><span class="toc-text">自由转动杆与铰链固定杆倾倒时间对比研究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-text">一、问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%89%A9%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-text">二、物理模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%87%AA%E7%94%B1%E6%9D%86%EF%BC%88%E5%85%89%E6%BB%91%E5%9C%B0%E9%9D%A2%EF%BC%89"><span class="toc-text">2.1 自由杆（光滑地面）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%93%B0%E9%93%BE%E6%9D%86%EF%BC%88%E5%9B%BA%E5%AE%9A%E5%BA%95%E7%AB%AF%EF%BC%89"><span class="toc-text">2.2 铰链杆（固定底端）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%96%B9%E7%A8%8B%E6%8E%A8%E5%AF%BC"><span class="toc-text">三、动力学方程推导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E8%87%AA%E7%94%B1%E6%9D%86%E7%9A%84%E5%80%BE%E5%80%92%E6%97%B6%E9%97%B4"><span class="toc-text">3.1 自由杆的倾倒时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%93%B0%E9%93%BE%E6%9D%86%E7%9A%84%E5%80%BE%E5%80%92%E6%97%B6%E9%97%B4"><span class="toc-text">3.2 铰链杆的倾倒时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-text">四、数值计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%97%B6%E9%97%B4%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="toc-text">4.1 时间积分公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%95%B0%E5%80%BC%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-text">4.2 数值实现代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%94%B1%E6%9D%86%E8%AE%A1%E7%AE%97%E4%BB%A3%E7%A0%81"><span class="toc-text">自由杆计算代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%B0%E9%93%BE%E6%9D%86%E8%AE%A1%E7%AE%97%E4%BB%A3%E7%A0%81"><span class="toc-text">铰链杆计算代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text">五、模拟结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E4%B8%8D%E5%90%8C%E5%88%9D%E5%A7%8B%E8%A7%92%E5%BA%A6%E5%AF%B9%E6%AF%94%EF%BC%88%E9%BB%98%E8%AE%A4%E6%9D%86%E9%95%BF1m%EF%BC%89"><span class="toc-text">5.1 不同初始角度对比（默认杆长1m）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%B8%8D%E5%90%8C%E6%9D%86%E9%95%BF%E5%AF%B9%E6%AF%94%EF%BC%88%E9%BB%98%E8%AE%A4%E5%80%BE%E6%96%9C30%C2%B0%EF%BC%89"><span class="toc-text">5.2 不同杆长对比（默认倾斜30°）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%BB%93%E8%AE%BA"><span class="toc-text">六、结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E8%AE%BAAI%E7%9B%AE%E5%89%8D%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%8F%96%E4%BB%A3%E4%BA%BA%E7%B1%BB"><span class="toc-text">附录：论AI目前为什么不能取代人类</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -99,7 +290,7 @@
 
 <script type="text/javascript">
   window.canonical = {"closeEnable":true,"closeText":"关闭提示","originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":null,"checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://yifei-huang-cos.github.io/posts/48befe4f/","checklink":"/js/plugins/video.js"};
   const ctx = {
     date_suffix: {
       just: `刚刚`,
@@ -583,6 +774,30 @@
 
 
 <!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
 
 
 
