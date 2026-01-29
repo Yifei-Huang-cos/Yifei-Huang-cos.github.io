@@ -28,7 +28,7 @@
 <meta property="og:description" content="《杀戮尖塔》设计内容深度拆解写在前面《杀戮尖塔》以其精妙的规则融合，定义了Roguelike卡牌。其成功远非简单的玩法叠加。本文将以 “内容拆解 → 平衡性分析 → 设计哲学提炼” 的三步框架，由表及里地剖析其设计精髓，揭示这款游戏如何将简单的规则编织成近乎无限的可能，并提供持久的策略乐趣。 第一步：内容拆解——游戏的建筑逻辑任何深度分析都始于对构成要素的系统性理解。 1. 核心驱动循环每一局游戏">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-28T08:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-29T02:23:52.731Z">
+<meta property="article:modified_time" content="2026-01-29T02:41:02.412Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-28T16:00:00+08:00","dateModified":"2026-01-29T10:23:52+08:00","datePublished":"2026-01-28T16:00:00+08:00","description":"","headline":"杀戮尖塔设计拆解——内容篇","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/98ac3117/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/98ac3117/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-28T16:00:00+08:00","dateModified":"2026-01-29T10:41:02+08:00","datePublished":"2026-01-28T16:00:00+08:00","description":"","headline":"杀戮尖塔设计拆解——内容篇","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/98ac3117/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/98ac3117/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
@@ -99,7 +99,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-28T08:00:00.000Z">2026-01-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-29T02:23:52.731Z">2026-01-29</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-28T08:00:00.000Z">2026-01-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-29T02:41:02.412Z">2026-01-29</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -249,7 +249,7 @@
 <li>协同引爆点：如死灵之书（每回合第一张二费及以上攻击牌打出两次）与高费攻击牌的配合，能将单次爆发伤害倍增。这类遗物与特定卡牌结合后，便能引发构筑的质变。</li>
 <li>构筑导向性：早期获得一个核心遗物（如“异蛇之眼”：每回合多抽二，你卡牌的能力消耗将会随机改变），往往会直接定义整局游戏的构筑方向（多抓高费牌，少抓0费）。这种因势利导的动态规划，正是游戏策略深度的核心体现。</li>
 </ul>
-<h2 id="第三步：设计哲学提炼——成功的底层逻辑"><a href="#第三步：设计哲学提炼——成功的底层逻辑" class="headerlink" title="第三步：设计哲学提炼——成功的底层逻辑"></a><strong>第三步：设计哲学提炼——成功的底层逻辑</strong></h2><p>在具体的平衡性之上，是支撑整个游戏体验的、更为普适的设计理念。这些理念之间的支撑关系，构成了游戏稳固的设计三角：****</p>
+<h2 id="第三步：设计哲学提炼——成功的底层逻辑"><a href="#第三步：设计哲学提炼——成功的底层逻辑" class="headerlink" title="第三步：设计哲学提炼——成功的底层逻辑"></a><strong>第三步：设计哲学提炼——成功的底层逻辑</strong></h2><p>在具体的平衡性之上，是支撑整个游戏体验的、更为普适的设计理念。这些理念之间的支撑关系，构成了游戏稳固的设计三角：</p>
 <pre class="mermaid">graph TD
     subgraph 表层体验
         D[动态构建的乐趣<br>“现在我能走哪条路？”]
