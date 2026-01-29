@@ -28,7 +28,7 @@
 <meta property="og:description" content="《杀戮尖塔》设计内容深度拆解写在前面《杀戮尖塔》以其精妙的规则融合，定义了Roguelike卡牌。其成功远非简单的玩法叠加。本文将以 “内容拆解 → 平衡性分析 → 设计哲学提炼” 的三步框架，由表及里地剖析其设计精髓，揭示这款游戏如何将简单的规则编织成近乎无限的可能，并提供持久的策略乐趣。 第一步：内容拆解——游戏的建筑逻辑任何深度分析都始于对构成要素的系统性理解。 1. 核心驱动循环每一局游戏">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-28T08:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-29T02:03:37.187Z">
+<meta property="article:modified_time" content="2026-01-29T02:05:07.463Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-28T16:00:00+08:00","dateModified":"2026-01-29T10:03:37+08:00","datePublished":"2026-01-28T16:00:00+08:00","description":"","headline":"杀戮尖塔设计拆解——内容篇","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/98ac3117/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/98ac3117/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-28T16:00:00+08:00","dateModified":"2026-01-29T10:05:07+08:00","datePublished":"2026-01-28T16:00:00+08:00","description":"","headline":"杀戮尖塔设计拆解——内容篇","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/98ac3117/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/98ac3117/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
@@ -99,7 +99,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-28T08:00:00.000Z">2026-01-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-29T02:03:37.187Z">2026-01-29</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-28T08:00:00.000Z">2026-01-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-29T02:05:07.463Z">2026-01-29</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -113,7 +113,10 @@
   </div><article class="md-text content"><h1 id="《杀戮尖塔》设计内容深度拆解"><a href="#《杀戮尖塔》设计内容深度拆解" class="headerlink" title="《杀戮尖塔》设计内容深度拆解"></a>《杀戮尖塔》设计内容深度拆解</h1><h6 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h6><p>《杀戮尖塔》以其精妙的规则融合，定义了Roguelike卡牌。其成功远非简单的玩法叠加。本文将以 “内容拆解 → 平衡性分析 → 设计哲学提炼” 的三步框架，由表及里地剖析其设计精髓，揭示这款游戏如何将简单的规则编织成近乎无限的可能，并提供持久的策略乐趣。</p>
 <h2 id="第一步：内容拆解——游戏的建筑逻辑"><a href="#第一步：内容拆解——游戏的建筑逻辑" class="headerlink" title="第一步：内容拆解——游戏的建筑逻辑"></a>第一步：内容拆解——游戏的建筑逻辑</h2><p>任何深度分析都始于对构成要素的系统性理解。</p>
 <h3 id="1-核心驱动循环"><a href="#1-核心驱动循环" class="headerlink" title="1. 核心驱动循环"></a>1. 核心驱动循环</h3><p>每一局游戏都由一个简洁有力的引擎驱动，其核心循环如下图所示，它构成了单局游戏最基本的行为骨架：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[战斗&lt;br&gt;消耗生命，检验牌组] --&gt; B[获取奖励&lt;br&gt;三选一卡牌/金币/遗物]</span><br><span class="line">    B --&gt; C&#123;地图路径决策&lt;br&gt;风险评估与资源规划&#125;</span><br><span class="line">    C --&gt;|选择路线| A</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">flowchart TD
+    A[战斗<br>消耗生命，检验牌组] --> B[获取奖励<br>三选一卡牌/金币/遗物]
+    B --> C{地图路径决策<br>风险评估与资源规划}
+    C -->|选择路线| A</pre>
 
 <p>这个循环持续进行，玩家的每一次选择都在动态塑造着独一无二的牌组与资源状况。</p>
 <p>生命值在此循环中扮演着双重角色：它既是需要保障的生存需求，也是可以谨慎花费以换取更高奖励的货币。</p>
@@ -202,7 +205,27 @@
 </li>
 </ul>
 <h2 id="第二步：平衡性分析——精密的调控艺术"><a href="#第二步：平衡性分析——精密的调控艺术" class="headerlink" title="第二步：平衡性分析——精密的调控艺术"></a>第二步：平衡性分析——精密的调控艺术</h2><p>真正让这些模块焕发生机的，是使其相互咬合、充满权衡的精妙平衡设计。下图概括了游戏在几个关键维度上如何设置平衡点：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph A [风险与回报的量化]</span><br><span class="line">        direction LR</span><br><span class="line">        A1[生命值] -- 作为决策货币 --&gt; A2[计算精英战收益&lt;br&gt;评估事件代价]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph B [资源与污染的博弈]</span><br><span class="line">        direction LR</span><br><span class="line">        B1[添加新卡牌] -- 可能 --&gt; B2[稀释牌库浓度]</span><br><span class="line">        B2 -- 提升 --&gt; B3[删除基础牌的战略价值]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph C [遗物的催化效应]</span><br><span class="line">        direction LR</span><br><span class="line">        C1[特定遗物] -- 与卡牌协同 --&gt; C2[引发质变&lt;br&gt;如：蛇眼+高费攻击]</span><br><span class="line">        C2 -- 引导 --&gt; C3[整局游戏构筑方向]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    A --&gt; D[终极目标：&lt;br&gt;在动态约束中规划最优解]</span><br><span class="line">    B --&gt; D</span><br><span class="line">    C --&gt; D</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">flowchart LR
+    subgraph A [风险与回报的量化]
+        direction LR
+        A1[生命值] -- 作为决策货币 --> A2[计算精英战收益<br>评估事件代价]
+    end
+
+    subgraph B [资源与污染的博弈]
+        direction LR
+        B1[添加新卡牌] -- 可能 --> B2[稀释牌库浓度]
+        B2 -- 提升 --> B3[删除基础牌的战略价值]
+    end
+
+    subgraph C [遗物的催化效应]
+        direction LR
+        C1[特定遗物] -- 与卡牌协同 --> C2[引发质变<br>如：蛇眼+高费攻击]
+        C2 -- 引导 --> C3[整局游戏构筑方向]
+    end
+
+    A --> D[终极目标：<br>在动态约束中规划最优解]
+    B --> D
+    C --> D</pre>
 
 <h3 id="1-风险与回报的量化体系"><a href="#1-风险与回报的量化体系" class="headerlink" title="1. 风险与回报的量化体系"></a>1. 风险与回报的量化体系</h3><p>游戏将绝大多数决策转化为可评估的风险与回报。</p>
 <ul>
@@ -227,7 +250,18 @@
 <li>构筑导向性：早期获得一个核心遗物（如“异蛇之眼”：每回合多抽二，你卡牌的能力消耗将会随机改变），往往会直接定义整局游戏的构筑方向（多抓高费牌，少抓0费）。这种因势利导的动态规划，正是游戏策略深度的核心体现。</li>
 </ul>
 <h2 id="第三步：设计哲学提炼——成功的底层逻辑"><a href="#第三步：设计哲学提炼——成功的底层逻辑" class="headerlink" title="第三步：设计哲学提炼——成功的底层逻辑"></a><strong>第三步：设计哲学提炼——成功的底层逻辑</strong></h2><p>在具体的平衡性之上，是支撑整个游戏体验的、更为普适的设计理念。这些理念之间的支撑关系，构成了游戏稳固的设计三角：****</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    subgraph 表层体验</span><br><span class="line">        D[动态构建的乐趣&lt;br&gt;“现在我能走哪条路？”]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 底层支柱</span><br><span class="line">        A[“限制”创造深度&lt;br&gt;能量/手牌/生命值] --&gt; D</span><br><span class="line">        B[信息透明下的风险计算&lt;br&gt;将运气转化为策略] --&gt; D</span><br><span class="line">        C[可控的随机性&lt;br&gt;用选择引导随机结果] --&gt; D</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    D --&gt; E[核心体验：&lt;br&gt;在约束中感受掌控感与成长的权力]</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TD
+    subgraph 表层体验
+        D[动态构建的乐趣<br>“现在我能走哪条路？”]
+    end
+
+    subgraph 底层支柱
+        A[“限制”创造深度<br>能量/手牌/生命值] --> D
+        B[信息透明下的风险计算<br>将运气转化为策略] --> D
+        C[可控的随机性<br>用选择引导随机结果] --> D
+    end
+
+    D --> E[核心体验：<br>在约束中感受掌控感与成长的权力]</pre>
 
 <h3 id="1-限制是深度策略的源泉"><a href="#1-限制是深度策略的源泉" class="headerlink" title="1. 限制是深度策略的源泉"></a>1. 限制是深度策略的源泉</h3><p>游戏中最引人入胜的决策，几乎都源于与各种限制的对抗。</p>
 <ul>
