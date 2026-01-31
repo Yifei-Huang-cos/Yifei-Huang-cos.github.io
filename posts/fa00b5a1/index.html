@@ -17,18 +17,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>杀戮尖塔设计拆解——数值篇 - 黄逸飞的个人博客</title>
+  <title>大模型的私有化部署（一） - 黄逸飞的个人博客</title>
 
   
-    <meta name="description" content="《杀戮尖塔》数值设计深度拆解​		在卡牌与Roguelike融合的游戏品类中，《杀戮尖塔》的成功离不开其精妙且恰到好处的数值设计。作为一款策略类，以决策为核心乐趣的游戏，它不依靠华丽的特效或复杂的剧情，而是通过能量、卡牌、遗物、难度等多维度的数值平衡，构建了“战斗-奖励-提升”的数值循环与“费用-收益”匹配的价值曲线，最终形成既充满随机性又具备可控策略空间的体验闭环。 ​		我累计500余小时的攀">
+    <meta name="description" content="大模型的私有化部署（一）一、部署前期准备1.1 服务器租赁（核心前提）由于个人电脑的算力、显存等硬件条件受限，不推荐本地部署大模型，优先选择云服务器提供的GPU租赁服务，主流平台可选择阿里云、AutoDL等。 选择建议（按场景划分） 测试&#x2F;学习用途：首推 AutoDL 优势：价格低廉，按小时计费，预装完整深度学习环境（无需手动配置Python、Torch等），开箱即用，对新手友好。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杀戮尖塔设计拆解——数值篇">
-<meta property="og:url" content="https://yifei-huang-cos.github.io/posts/eff9c8a5/">
+<meta property="og:title" content="大模型的私有化部署（一）">
+<meta property="og:url" content="https://yifei-huang-cos.github.io/posts/fa00b5a1/">
 <meta property="og:site_name" content="黄逸飞的个人博客">
-<meta property="og:description" content="《杀戮尖塔》数值设计深度拆解​		在卡牌与Roguelike融合的游戏品类中，《杀戮尖塔》的成功离不开其精妙且恰到好处的数值设计。作为一款策略类，以决策为核心乐趣的游戏，它不依靠华丽的特效或复杂的剧情，而是通过能量、卡牌、遗物、难度等多维度的数值平衡，构建了“战斗-奖励-提升”的数值循环与“费用-收益”匹配的价值曲线，最终形成既充满随机性又具备可控策略空间的体验闭环。 ​		我累计500余小时的攀">
+<meta property="og:description" content="大模型的私有化部署（一）一、部署前期准备1.1 服务器租赁（核心前提）由于个人电脑的算力、显存等硬件条件受限，不推荐本地部署大模型，优先选择云服务器提供的GPU租赁服务，主流平台可选择阿里云、AutoDL等。 选择建议（按场景划分） 测试&#x2F;学习用途：首推 AutoDL 优势：价格低廉，按小时计费，预装完整深度学习环境（无需手动配置Python、Torch等），开箱即用，对新手友好。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-28T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-29T09:17:45.618Z">
+<meta property="article:published_time" content="2026-01-31T11:00:07.000Z">
+<meta property="article:modified_time" content="2026-01-31T11:31:20.546Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-28T10:00:00+08:00","dateModified":"2026-01-29T17:17:45+08:00","datePublished":"2026-01-28T10:00:00+08:00","description":"","headline":"杀戮尖塔设计拆解——数值篇","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/eff9c8a5/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/eff9c8a5/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-01-31T19:00:07+08:00","dateModified":"2026-01-31T19:31:20+08:00","datePublished":"2026-01-31T19:00:07+08:00","description":"","headline":"大模型的私有化部署（一）","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/fa00b5a1/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/fa00b5a1/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
@@ -98,50 +98,131 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-28T02:00:00.000Z">2026-01-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-29T09:17:45.618Z">2026-01-29</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-01-31T11:00:07.000Z">2026-01-31</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-01-31T11:31:20.546Z">2026-01-31</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>杀戮尖塔设计拆解——数值篇</span></h1>
+        <h1 class="text title"><span>大模型的私有化部署（一）</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="《杀戮尖塔》数值设计深度拆解"><a href="#《杀戮尖塔》数值设计深度拆解" class="headerlink" title="《杀戮尖塔》数值设计深度拆解"></a>《杀戮尖塔》数值设计深度拆解</h1><p>​		在卡牌与Roguelike融合的游戏品类中，《杀戮尖塔》的成功离不开其精妙且恰到好处的数值设计。作为一款策略类，以决策为核心乐趣的游戏，它不依靠华丽的特效或复杂的剧情，而是通过能量、卡牌、遗物、难度等多维度的数值平衡，构建了“战斗-奖励-提升”的数值循环与“费用-收益”匹配的价值曲线，最终形成既充满随机性又具备可控策略空间的体验闭环。</p>
-<p>​		我累计500余小时的攀登历程中，深刻感受到每一处数值细节都暗藏策划巧思，下文将结合参考文章的权威数值体系，从核心资源价值、卡牌数值架构、遗物联动逻辑、难度平衡设计四个核心维度，拆解其数值设计的精髓。</p>
+  </div><article class="md-text content"><h1 id="大模型的私有化部署（一）"><a href="#大模型的私有化部署（一）" class="headerlink" title="大模型的私有化部署（一）"></a>大模型的私有化部署（一）</h1><h2 id="一、部署前期准备"><a href="#一、部署前期准备" class="headerlink" title="一、部署前期准备"></a>一、部署前期准备</h2><h3 id="1-1-服务器租赁（核心前提）"><a href="#1-1-服务器租赁（核心前提）" class="headerlink" title="1.1 服务器租赁（核心前提）"></a>1.1 服务器租赁（核心前提）</h3><p>由于个人电脑的算力、显存等硬件条件受限，<strong>不推荐本地部署大模型</strong>，优先选择云服务器提供的GPU租赁服务，主流平台可选择阿里云、AutoDL等。</p>
+<h4 id="选择建议（按场景划分）"><a href="#选择建议（按场景划分）" class="headerlink" title="选择建议（按场景划分）"></a>选择建议（按场景划分）</h4><ul>
+<li><strong>测试&#x2F;学习用途</strong>：首推 <strong>AutoDL</strong><ul>
+<li>优势：价格低廉，按小时计费，预装完整深度学习环境（无需手动配置Python、Torch等），开箱即用，对新手友好。</li>
+</ul>
+</li>
+<li><strong>生产&#x2F;长期运行用途</strong>：优先选择 <strong>阿里云</strong>、<strong>腾讯云</strong><ul>
+<li>优势：稳定性更强，服务保障更完善，支持弹性扩容，适合企业级落地场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-服务器实例创建与信息留存"><a href="#1-2-服务器实例创建与信息留存" class="headerlink" title="1.2 服务器实例创建与信息留存"></a>1.2 服务器实例创建与信息留存</h3><ol>
+<li>配置选择：推荐显卡型号 RTX 3090&#x2F;4090 或 A100，<strong>显存≥16GB</strong>（保障8B模型正常运行），按需选择CPU与硬盘容量（建议硬盘≥50GB，用于存储模型文件）。</li>
+<li>实例创建完成后，<strong>务必妥善记录以下连接信息</strong>（丢失后难以找回）：<ul>
+<li><strong>SSH 地址</strong>（格式示例：<code>123.456.78.90:12345</code>）</li>
+<li><strong>登录密码</strong>（或密钥文件，若选择密钥登录）</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-3-PyCharm-Pro-远程SSH连接（高效开发必备）"><a href="#1-3-PyCharm-Pro-远程SSH连接（高效开发必备）" class="headerlink" title="1.3 PyCharm Pro 远程SSH连接（高效开发必备）"></a>1.3 PyCharm Pro 远程SSH连接（高效开发必备）</h3><p>为了简化后续的代码编写、文件管理与命令执行，推荐使用PyCharm专业版的远程开发功能，直接连接云服务器进行操作。</p>
+<h4 id="详细操作步骤"><a href="#详细操作步骤" class="headerlink" title="详细操作步骤"></a>详细操作步骤</h4><ol>
+<li>打开 PyCharm Professional，创建或打开你的项目。</li>
+<li>进入路径：<code>File</code> → <code>Settings</code> → <code>Project: [你的项目名]</code> → <code>Python Interpreter</code>。</li>
+<li>点击解释器右侧的 <strong><code>Add Interpreter</code></strong> 按钮，选择 **<code>On SSH...</code>**（远程SSH解释器）。</li>
+<li>在弹出的配置窗口中，填写服务器信息：<ul>
+<li><code>Host</code>：服务器公网IP地址（无需带端口）</li>
+<li><code>Port</code>：SSH端口号（默认22，AutoDL等平台为随机分配端口，需对应记录的信息）</li>
+<li><code>Username</code>：默认通常为 <code>root</code></li>
+<li><code>Password</code>：填写记录的服务器登录密码</li>
+</ul>
+</li>
+<li>后续步骤一路点击 <code>Next</code>，默认选择服务器上的Python解释器即可，完成配置。</li>
+<li>验证：配置成功后，PyCharm的终端（Terminal）执行命令会直接在远程服务器上运行，文件操作也会同步到服务器对应目录。</li>
+</ol>
+<h2 id="二、模型下载与环境配置"><a href="#二、模型下载与环境配置" class="headerlink" title="二、模型下载与环境配置"></a>二、模型下载与环境配置</h2><h3 id="2-1-大模型下载（以Qwen3-8B-Instruct为例）"><a href="#2-1-大模型下载（以Qwen3-8B-Instruct为例）" class="headerlink" title="2.1 大模型下载（以Qwen3-8B-Instruct为例）"></a>2.1 大模型下载（以Qwen3-8B-Instruct为例）</h3><p>我们选择从<strong>ModelScope（魔搭社区）</strong>下载字节跳动开源的Qwen3-8B-Instruct模型，该模型性能均衡，适合新手入门私有化部署。</p>
+<h4 id="步骤1：找到模型官方页面"><a href="#步骤1：找到模型官方页面" class="headerlink" title="步骤1：找到模型官方页面"></a>步骤1：找到模型官方页面</h4><p><a target="_blank" rel="noopener" href="https://www.modelscope.cn/models/qwen/Qwen3-8B-Instruct/summary">https://www.modelscope.cn/models/qwen/Qwen3-8B-Instruct/summary</a></p>
+<h4 id="步骤2：Python-SDK-下载（推荐，自动处理依赖与文件整合）"><a href="#步骤2：Python-SDK-下载（推荐，自动处理依赖与文件整合）" class="headerlink" title="步骤2：Python SDK 下载（推荐，自动处理依赖与文件整合）"></a>步骤2：Python SDK 下载（推荐，自动处理依赖与文件整合）</h4><ol>
+<li>若未安装ModelScope库，先在PyCharm远程终端执行安装命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install modelscope</span><br></pre></td></tr></table></figure></li>
+<li>创建Python脚本（或直接在终端运行），执行以下下载代码：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope <span class="keyword">import</span> snapshot_download</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置模型名称与下载目录</span></span><br><span class="line"><span class="comment"># 注意：AutoDL平台大容量数据盘默认路径为 /root/autodl-tmp，优先选择该目录节省系统盘空间</span></span><br><span class="line">model_name = <span class="string">&#x27;Qwen/Qwen3-8B-Instruct&#x27;</span></span><br><span class="line">save_dir = <span class="string">&#x27;/root/autodl-tmp/models&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始下载模型（首次下载约15GB，耗时取决于网络速度）</span></span><br><span class="line">model_dir = snapshot_download(model_name, cache_dir=save_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印模型最终存储路径（后续启动服务需用到，建议复制留存）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;模型下载完成，存储路径：<span class="subst">&#123;model_dir&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-2-安装-vLLM-推理引擎（高速推理核心）"><a href="#2-2-安装-vLLM-推理引擎（高速推理核心）" class="headerlink" title="2.2 安装 vLLM 推理引擎（高速推理核心）"></a>2.2 安装 vLLM 推理引擎（高速推理核心）</h3><p>vLLM 是一款高性能的大模型推理与服务库，相比原生推理框架，具有<strong>显存利用率高、生成速度快、支持高并发</strong>的优势，是私有化部署的首选推理引擎。</p>
+<p>在PyCharm远程终端中执行以下安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install vllm</span><br></pre></td></tr></table></figure>
+
+<h4 id="验证安装成功"><a href="#验证安装成功" class="headerlink" title="验证安装成功"></a>验证安装成功</h4><p>安装完成后，执行以下命令检查是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list | grep vllm</span><br></pre></td></tr></table></figure>
+<p>若终端返回 vllm 对应的版本号，说明安装完成。</p>
+<h2 id="三、启动-OpenAI-兼容-API-服务"><a href="#三、启动-OpenAI-兼容-API-服务" class="headerlink" title="三、启动 OpenAI 兼容 API 服务"></a>三、启动 OpenAI 兼容 API 服务</h2><h3 id="3-1-启动命令（复制即可使用，需修改模型路径）"><a href="#3-1-启动命令（复制即可使用，需修改模型路径）" class="headerlink" title="3.1 启动命令（复制即可使用，需修改模型路径）"></a>3.1 启动命令（复制即可使用，需修改模型路径）</h3><p>在PyCharm远程终端中，执行以下命令启动OpenAI兼容的API服务（命令行换行用 <code>\</code> 分隔，确保完整复制）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">python -m vllm.entrypoints.openai.api_server \</span><br><span class="line">    --model /root/autodl-tmp/models/Qwen/Qwen3-8B-Instruct \</span><br><span class="line">    --served-model-name qwen3-8b \</span><br><span class="line">    --max-model-len 8k \</span><br><span class="line">    --host 0.0.0.0 \</span><br><span class="line">    --port 6006 \</span><br><span class="line">    --dtype bfloat16 \</span><br><span class="line">    --gpu-memory-utilization 0.8 \</span><br><span class="line">    --enable-auto-tool-choice \</span><br><span class="line">    --tool-call-parser hermes</span><br></pre></td></tr></table></figure>
+
+<h4 id="核心参数说明（必看，方便后续自定义配置）"><a href="#核心参数说明（必看，方便后续自定义配置）" class="headerlink" title="核心参数说明（必看，方便后续自定义配置）"></a>核心参数说明（必看，方便后续自定义配置）</h4><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">作用说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>--model</code></td>
+<td align="left"><strong>模型本地绝对路径</strong>（需与下载完成后的实际路径一致，关键！）</td>
+</tr>
+<tr>
+<td align="left"><code>--served-model-name</code></td>
+<td align="left">对外暴露的模型名称，API调用时需指定该名称</td>
+</tr>
+<tr>
+<td align="left"><code>--max-model-len 8k</code></td>
+<td align="left">模型支持的最大上下文长度，Qwen3-8B-Instruct支持最高8k</td>
+</tr>
+<tr>
+<td align="left"><code>--host 0.0.0.0</code></td>
+<td align="left">允许外部设备访问该服务（本地电脑、其他服务器），不可修改为127.0.0.1</td>
+</tr>
+<tr>
+<td align="left"><code>--port 6006</code></td>
+<td align="left">服务端口，可自定义（如8080、9090），需确保端口未被占用且已放行</td>
+</tr>
+<tr>
+<td align="left"><code>--dtype bfloat16</code></td>
+<td align="left">采用bfloat16精度运行，平衡推理速度与模型效果，同时节省大量显存</td>
+</tr>
+<tr>
+<td align="left"><code>--gpu-memory-utilization 0.8</code></td>
+<td align="left">GPU内存利用率上限（80%），可根据显存大小调整（如显存不足可改为0.7）</td>
+</tr>
+</tbody></table>
+<h4 id="启动成功标识"><a href="#启动成功标识" class="headerlink" title="启动成功标识"></a>启动成功标识</h4><p>若终端输出 <code>INFO: Uvicorn running on http://0.0.0.0:6006</code>，说明服务已成功启动，保持终端窗口开启（关闭终端会终止服务）。</p>
+<h3 id="3-2-API-服务测试（验证部署效果）"><a href="#3-2-API-服务测试（验证部署效果）" class="headerlink" title="3.2 API 服务测试（验证部署效果）"></a>3.2 API 服务测试（验证部署效果）</h3><p>服务启动后，通过以下两种测试方式验证是否可正常调用。</p>
+<h4 id="测试1：基础模型列表查询"><a href="#测试1：基础模型列表查询" class="headerlink" title="测试1：基础模型列表查询"></a>测试1：基础模型列表查询</h4><p>在本地电脑终端（或服务器新终端窗口）执行以下 <code>curl</code> 命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://&lt;你的服务器IP&gt;:6006/v1/models</span><br></pre></td></tr></table></figure>
+<p><strong>替换 <code>&lt;你的服务器IP&gt;</code> 为实际公网IP</strong>，若返回包含 <code>&quot;id&quot;: &quot;qwen3-8b&quot;</code> 的JSON格式数据，说明服务运行正常。</p>
+<h4 id="测试2：对话功能测试（实际调用模型生成回复）"><a href="#测试2：对话功能测试（实际调用模型生成回复）" class="headerlink" title="测试2：对话功能测试（实际调用模型生成回复）"></a>测试2：对话功能测试（实际调用模型生成回复）</h4><p>在本地电脑终端执行以下 <code>curl</code> 命令，发送对话请求：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">curl http://&lt;你的服务器IP&gt;:6006/v1/chat/completions \</span><br><span class="line">  -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">  -d <span class="string">&#x27;&#123;</span></span><br><span class="line"><span class="string">    &quot;model&quot;: &quot;qwen3-8b&quot;,</span></span><br><span class="line"><span class="string">    &quot;messages&quot;: [</span></span><br><span class="line"><span class="string">      &#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好，请用一句话介绍你自己。&quot;&#125;</span></span><br><span class="line"><span class="string">    ]</span></span><br><span class="line"><span class="string">  &#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>若返回包含模型回复内容的JSON数据，说明对话功能正常，私有化部署API服务搭建完成。</p>
+<h2 id="四、常见问题与避坑指南"><a href="#四、常见问题与避坑指南" class="headerlink" title="四、常见问题与避坑指南"></a>四、常见问题与避坑指南</h2><ol>
+<li><strong>端口不通，无法访问服务</strong><ul>
+<li><strong>排查步骤</strong>：① 确认服务器安全组&#x2F;防火墙已放行 <code>6006</code> 端口（AutoDL在实例控制台「端口映射」中配置）；② 确认启动命令中 <code>--host</code> 为 <code>0.0.0.0</code>；③ 确认服务器IP填写正确，无端口号输入错误。</li>
+</ul>
+</li>
+<li><strong>显存不足（OOM错误），启动失败</strong><ul>
+<li><strong>解决方案</strong>：① 降低 <code>--gpu-memory-utilization</code> 参数（如改为0.7或0.6）；② 将 <code>--dtype bfloat16</code> 改为 <code>--dtype float16</code>（进一步节省显存，少量损失效果）；③ 租用显存更大的GPU实例（如A100 40GB）。</li>
+</ul>
+</li>
+<li><strong>关闭终端后，服务停止运行</strong><ul>
+<li><strong>解决方案</strong>：① 使用 <code>nohup</code> 命令后台运行（命令前加 <code>nohup</code>，结尾加 <code>&amp;</code>，日志保存至 <code>nohup.out</code>）；② 安装 <code>tmux</code>&#x2F;<code>screen</code> 工具，创建会话保持服务运行（适合长期部署）。</li>
+</ul>
+</li>
+<li><strong>本地代码调用私有模型</strong><ul>
+<li><strong>核心配置</strong>：将OpenAI SDK的 <code>api_base</code> 改为 <code>http://&lt;你的服务器IP&gt;:6006/v1</code>，<code>model</code> 改为 <code>qwen3-8b</code>，即可像调用OpenAI官方API一样使用私有模型。</li>
+</ul>
+</li>
+</ol>
 <hr>
-<h2 id="⚡-一、核心资源数值（能量）：作为抉择基石"><a href="#⚡-一、核心资源数值（能量）：作为抉择基石" class="headerlink" title="⚡ 一、核心资源数值（能量）：作为抉择基石"></a>⚡ 一、核心资源数值（能量）：作为抉择基石</h2><p>​		《杀戮尖塔》的战斗数值体系中，每回合的能量是贯穿始终的核心约束变量，其数值设定直接决定了策略决策的深度，且存在明确的价值量化标准。游戏初始默认单回合能量上限为3点（部分职遗物可提升），能量存在固定价值曲线：0点能量基础价值为3，之后每增加1点能量额外提供2点价值，这一量化标准构成了卡牌设计的核心基准，而非简单的“3点约束”。这一数值体系实则构建了“攻击-防御-能量-运转”的四维策略平衡，迫使玩家在每回合进行精准的资源分配与机会成本权衡。</p>
-<h4 id="🔹-1-1-从设计意图来看"><a href="#🔹-1-1-从设计意图来看" class="headerlink" title="🔹 1.1 从设计意图来看"></a>🔹 1.1 从设计意图来看</h4><p>​		初始3点能量的数值设定是价值曲线与策略深度的最优解：若能量过多，玩家可同时触发多个高价值连携效果，策略抉择的价值会大幅降低；若能量过少，则无法支撑基础连携的触发，破坏卡组运转流畅度。3点能量恰好让玩家每回合需在基础输入+单一乘区或者多乘区组合但基础输入弱化等策略中抉择。</p>
-<p>​		面对一层精英敌人乐嘉（额这是外号，具体名字不记得了QAQ）即将到来的高额攻击，玩家需在1费防御（5格挡，价值匹配）+2费攻击（打击1费打6）与2费防御（初始防御1费5格挡）+1费运转（抽牌调整手牌）之间权衡，而这种抉择直接关联生命值资源的消耗与留存，正是数值驱动策略乐趣的核心来源。</p>
-<p>​		值得注意的是，即使是0费卡牌也存在隐性成本，其占用的抽牌位会导致错过其他关键卡牌，这一机会成本同样被纳入能量价值体系的考量范畴。</p>
-<h4 id="🔹-1-2-能量数值的弹性设计进一步丰富了策略维度"><a href="#🔹-1-2-能量数值的弹性设计进一步丰富了策略维度" class="headerlink" title="🔹 1.2 能量数值的弹性设计进一步丰富了策略维度"></a>🔹 1.2 能量数值的弹性设计进一步丰富了策略维度</h4><p>​		游戏通过融合之锤（boss遗物）孙子兵法（普通遗物）等遗物提供能量加成，例如孙子兵法的设定是：如果不使用攻击卡下回合+1能量，本质是通过策略选择换取能量价值的提升（额外获得2点基础价值）；而许多boss遗物通过支付某些特定代价（例如锤子：火堆无法升级牌；绿帽：无法获得金币）换取每回合稳定多一费。这种代价支付加稳定收益的数值设计，既保证了体系的稳定性，又为流派构建提供了多样化可能。</p>
-<hr>
-<h2 id="🃏-二、卡牌数值体系（费效比）：精准定位与价值平衡"><a href="#🃏-二、卡牌数值体系（费效比）：精准定位与价值平衡" class="headerlink" title="🃏 二、卡牌数值体系（费效比）：精准定位与价值平衡"></a>🃏 二、卡牌数值体系（费效比）：精准定位与价值平衡</h2><p>​		卡牌是玩家实现策略意图的核心载体，《杀戮尖塔》的卡牌数值设计遵循：卡组定位、费效比、联动组件三大原则，核心逻辑是以能量价值为基准，构建‘基础输入-乘区放大-导出转化’的强度公式，确保不同类型、不同费用的卡牌在性价比上保持平衡，同时尽可能避免策略单一化，掩盖其他玩法的问题。单张卡牌效果普遍简洁，仅提供基础输入或单一乘区，需通过组合形成强大连携，这既降低了玩家记忆成本，又提升了策略深度。</p>
-<h4 id="⚠️-2-1-插一句设计缺陷"><a href="#⚠️-2-1-插一句设计缺陷" class="headerlink" title="⚠️ 2.1 插一句设计缺陷"></a>⚠️ 2.1 插一句设计缺陷</h4><p>​		（上一段所说的避免策略单一化只在前两个职业，即战士和猎人上完成的较为完美，而我们鸡煲，呃呃，懂得都懂，问就是还在启动，在启动。观者的设计则是严重不平衡，暴怒带来的双倍伤害让其很多职业卡的费效比不尽人意，红蓝无限的玩法带来的收益又过于超模，掩盖了观者的神格预见点穴等体系。虽说这几个体系本来也有数值不足的问题。只能说观者的出现，对玩家来说可能是玩起来比较容易爽的角色，但从数值设计的角度看，无疑是失败的）</p>
-<h4 id="🔹-2-2-在攻击卡牌设计中"><a href="#🔹-2-2-在攻击卡牌设计中" class="headerlink" title="🔹 2.2 在攻击卡牌设计中"></a>🔹 2.2 在攻击卡牌设计中</h4><p>​		数值严格匹配能量价值曲线，且通过“基础输入+乘区”的组合形成差异化定位。</p>
-<p>​		1费的打击基础伤害为6点（价值2，匹配1费能量价值5中的基础部分），2费的重击伤害为14点且附带3倍力量加成（价值5+2，2费能量价值7完全匹配），而非简单的倍数关系；0费的愤怒可造成6点伤害并在弃牌堆放入一张自身，收益为2+1（额外留存卡牌资源），精准匹配0费能量3点的基础价值。</p>
-<p>​		不同卡牌的乘区特性适配不同流派：战士的重击依赖力量乘区实现爆发输出，静默猎手的0费小刀则通过多次攻击乘区触发精准，袖箭等被动效果，成为小刀流的核心输入组件。这种设计让低费卡并非弱卡，而是适配高频连击流派，高费卡则需放弃当回合其他资源，形成明确的机会成本权衡。</p>
-<h4 id="🔹-2-3-防御卡牌的数值设计同样遵循价值曲线，且聚焦临时防护"><a href="#🔹-2-3-防御卡牌的数值设计同样遵循价值曲线，且聚焦临时防护" class="headerlink" title="🔹 2.3 防御卡牌的数值设计同样遵循价值曲线，且聚焦临时防护"></a>🔹 2.3 防御卡牌的数值设计同样遵循价值曲线，且聚焦临时防护</h4><p>​		游戏将格挡设定为临时性防御资源，没有特殊卡牌和遗物的情况下防御不会保留，1点格挡等价于1点生命值。</p>
-<p>​		1费的初始卡防御提供5点格挡（价值匹配1费能量），2费的稀有卡岿然不动提供30点格挡，但是是消耗卡，不能够反复利用。玩家可根据敌方伤害数值选择合适的防御卡牌：面对小额持续伤害，优先使用低费防御卡节省能量；面对大额单次伤害，则需投入高费防御卡或组合多张防御卡。</p>
-<p>​		更关键的是，防御维度可通过特定卡牌转化为攻击强度，例如战士的肚皮（全身撞击，未升级是1费，升级后变成0费）可造成当前格挡值的攻击伤害，将防御资源转化为输出输入，这一设计打破了维度壁垒，让“高防御+高输出”的防战流派成为可能。而能力卡壁垒可以保留格挡值的设定，更是强化了防御乘区的效果，让格挡资源可跨回合累积，催生格挡转伤害的防御流派。</p>
-<h4 id="🔹-2-4-卡牌升级的数值提升也严格匹配价值均衡原则"><a href="#🔹-2-4-卡牌升级的数值提升也严格匹配价值均衡原则" class="headerlink" title="🔹 2.4 卡牌升级的数值提升也严格匹配价值均衡原则"></a>🔹 2.4 卡牌升级的数值提升也严格匹配价值均衡原则</h4><p>​		打击升级后伤害从6提升至9（提升幅度50%），防御升级后格挡从5提升至8（提升幅度60%），升级后的价值仍与能量费用精准匹配，既让升级后的卡牌具备明显优势，又不会让未升级卡牌完全失效。这一设计确保玩家在升级卡牌与回复生命的火堆处选择中产生策略博弈——是提升长期战力以减少后续生命值消耗，还是保证当前生存以规避即时风险？这种博弈让每一次火堆选择都成为影响数值循环的关键决策。</p>
-<hr>
-<h2 id="🧩-三、遗物数值联动：打破基础规则的策略裂变引擎"><a href="#🧩-三、遗物数值联动：打破基础规则的策略裂变引擎" class="headerlink" title="🧩 三、遗物数值联动：打破基础规则的策略裂变引擎"></a>🧩 三、遗物数值联动：打破基础规则的策略裂变引擎</h2><p>​		遗物系统是《杀戮尖塔》数值设计的点睛之笔，其核心价值在于通过“数值加成+机制改变”的组合，优化卡组的体系，催生多样化的流派构建。遗物的数值设计并非简单的数值堆砌，而是精准匹配卡牌的连携逻辑，同时服务于“战斗-奖励-提升”的数值循环（因为遗物通常由精英怪掉落，而打精英怪可能面临生存危险，你说是吧鸡煲TvT（还在启动，在启动，启动，启…）），与卡牌体系形成约束和强化的联动闭环——没有合适的卡牌组合，遗物的数值优势无法发挥；缺少遗物的数值加持，卡牌组合也难以形成质变。</p>
-<h4 id="🔹-3-1-普通遗物：补充短板和优化体验为主"><a href="#🔹-3-1-普通遗物：补充短板和优化体验为主" class="headerlink" title="🔹 3.1 普通遗物：补充短板和优化体验为主"></a>🔹 3.1 普通遗物：补充短板和优化体验为主</h4><p>​		战士的初始遗物“燃烧之血”效果是战斗后回血6点，解决了前期回血资源稀缺的问题，让玩家可更激进地挑战战斗；普通遗物背包的效果是第一轮多抽2张牌，提升关键牌上手率，降低第一轮的鬼抽概率；还有商店遗物工具箱，棱镜，前者可以每场战斗3选1一张无色牌，就冲着能选到神话和打钱手这也是必买遗物，而棱镜则打破职业卡限制，让选择里多出其他职业的职业卡，可能会选出梦寐以求的配合（鸡煲：我要学猛虎下山！）。这些数值设计虽看似微小，但能显著优化特定职业的前期体验，引导玩家向职业核心流派靠拢。</p>
-<h4 id="🔹-3-2-罕见遗物与Boss遗物则通过数值质变和机制突破催生全新策略，同时兼顾对单一策略的抑制"><a href="#🔹-3-2-罕见遗物与Boss遗物则通过数值质变和机制突破催生全新策略，同时兼顾对单一策略的抑制" class="headerlink" title="🔹 3.2 罕见遗物与Boss遗物则通过数值质变和机制突破催生全新策略，同时兼顾对单一策略的抑制"></a>🔹 3.2 罕见遗物与Boss遗物则通过数值质变和机制突破催生全新策略，同时兼顾对单一策略的抑制</h4><p>​		钢笔尖设定“每第十张攻击造成双倍伤害，将“低费复用输出的运转转化为攻击乘区，引导玩家调整高费攻击卡排序；蛇眼作为boss遗物，效果是每回合多抽2张，但所有卡牌的费用会从0到3费随机，解决了过牌问题，也让玩家多抓高费卡少带低费卡。</p>
-<p>​		而针对飞身踢无限等可能导致策略退化的玩法，游戏通过数值限制进行平衡——飞身踢基础伤害仅5点（低于初始打击的6点），且需目标有易伤效果才能打出，提升了连携成本；同时Boss“时间吞噬者”设定玩家每打出12张牌后强制结束回合，从机制上限制低数值无限的强度（比如亮剑【0费打3抽1】妙计【0费防2抽1】相互抽的低数值无限），确保各流派的平衡。</p>
-<hr>
-<h2 id="📊-四、难度梯度数值：动态平衡的“学习型”挑战曲线"><a href="#📊-四、难度梯度数值：动态平衡的“学习型”挑战曲线" class="headerlink" title="📊 四、难度梯度数值：动态平衡的“学习型”挑战曲线"></a>📊 四、难度梯度数值：动态平衡的“学习型”挑战曲线</h2><p>​		《杀戮尖塔》的进阶等级系统是其数值难度设计的核心，最高20级的进阶梯度并非简单提升敌人血量与伤害，而是通过“精准数值微调+规则约束增加”的方式，扰动核心数值循环，构建平滑且富有深度的学习型挑战曲线。其设计逻辑与玩家策略成长相匹配，低进阶等级调整普通敌人数值，引导玩家熟悉卡牌与遗物的基础连携；高进阶等级则通过规则约束强化数值压力，迫使玩家优化卡组构建策略。</p>
-<h4 id="🔹-4-1-进阶难度的数值设计"><a href="#🔹-4-1-进阶难度的数值设计" class="headerlink" title="🔹 4.1 进阶难度的数值设计"></a>🔹 4.1 进阶难度的数值设计</h4><p>​		遵循蝴蝶效应原则，通过微小的数值调整引发策略连锁反应。例如进阶17后，二层普通敌人三鸟的坠机条件从受击3次变为受击4次，看似仅增加1次受击需求，却直接提升了对运转维度与攻击频率的要求（经典是观者的发泄，不敲三段伤害，敲了4段伤害，在低进阶一个发泄就可以把三鸟肘下来，在高进阶则刚需升级）——低费高频攻击卡组需多花费1回合才能击落，可能导致暴露在敌方多轮攻击下，增加生命值消耗。</p>
-<p>​		而进阶20中，普通敌人壳爹＋蘑菇（开幕21和他的易伤药，已经畏惧了 …）第一回合伤害从18点提升至21点并附加脆弱Debuff），这一调整直接放大了防御维度的价值缺口，迫使玩家必须在前期就构建足够的防御体系，否则极易血量崩盘。这种差一点就通关的数值设计，既不会让玩家产生挫败感，又能推动玩家深化对数值体系的理解，优化策略决策以适配更严苛的数值循环。</p>
-<h4 id="🔹-4-2-高进阶等级的规则约束"><a href="#🔹-4-2-高进阶等级的规则约束" class="headerlink" title="🔹 4.2 高进阶等级的规则约束"></a>🔹 4.2 高进阶等级的规则约束</h4><p>​		进阶10后，玩家初始生命上限减少，这一数值调整直接提升了前期生命值资源的稀缺性，让血量管理成为核心决策点，同时放大了燃烧血、羽毛、梨子、华夫饼等回血与生命上限提升类遗物的价值（当然丢人枕头除外）；进阶15后“商店卡牌价格提升”，则扰动了经济数值循环，迫使玩家更谨慎地分配金币资源，优先选择移除低价值初始卡牌（指打击）而非盲目购买新卡。</p>
-<p>这些设计形成了难度约束与策略适配的动态平衡，确保玩家在提升技巧的同时，始终能获得匹配的挑战体验。</p>
-<hr>
-<h2 id="🎯-结语：数值驱动的策略乐趣闭环"><a href="#🎯-结语：数值驱动的策略乐趣闭环" class="headerlink" title="🎯 结语：数值驱动的策略乐趣闭环"></a>🎯 结语：数值驱动的策略乐趣闭环</h2><p>​		《杀戮尖塔》的数值设计之所以精妙，在于其构建了一个“价值基准-连携放大-循环闭环-难度适配”的完整体系：以能量价值曲线为基础基准，通过卡牌的“基础输入-乘区-导出”架构实现策略落地，借助遗物优化或打破基础规则以丰富流派，再通过难度调整扰动数值循环，推动玩家深化策略理解。</p>
-<p>​		整个体系的核心是生命值等价原则，所有资源最终都可转化为生命值的留存能力，而每一处数值细节都服务于策略决策的核心乐趣——让玩家在随机生成的尖塔中，通过解读数值关系、组合连携模块、适配数值循环，不断探索全新的构筑可能性。这种以数值为骨架，以策略为血肉的设计思路，不仅避免了策略退化，保证了多流派的平衡共存，更成就了《杀戮尖塔》的经典地位，为后续卡牌Roguelike游戏的数值设计提供了可借鉴的核心框架。</p>
 </article>
 <div class="article-footer">
     <section id="license">
@@ -153,7 +234,7 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/98ac3117/">杀戮尖塔设计拆解——内容篇</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/2c281e1a/">AI x game 深度体验报告</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/de29066e/">杀戮尖塔设计拆解——世界观篇</a></div></section></div>
 
 
 
@@ -182,7 +263,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E6%9D%80%E6%88%AE%E5%B0%96%E5%A1%94%E3%80%8B%E6%95%B0%E5%80%BC%E8%AE%BE%E8%AE%A1%E6%B7%B1%E5%BA%A6%E6%8B%86%E8%A7%A3"><span class="toc-text">《杀戮尖塔》数值设计深度拆解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%A1-%E4%B8%80%E3%80%81%E6%A0%B8%E5%BF%83%E8%B5%84%E6%BA%90%E6%95%B0%E5%80%BC%EF%BC%88%E8%83%BD%E9%87%8F%EF%BC%89%EF%BC%9A%E4%BD%9C%E4%B8%BA%E6%8A%89%E6%8B%A9%E5%9F%BA%E7%9F%B3"><span class="toc-text">⚡ 一、核心资源数值（能量）：作为抉择基石</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-1-1-%E4%BB%8E%E8%AE%BE%E8%AE%A1%E6%84%8F%E5%9B%BE%E6%9D%A5%E7%9C%8B"><span class="toc-text">🔹 1.1 从设计意图来看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-1-2-%E8%83%BD%E9%87%8F%E6%95%B0%E5%80%BC%E7%9A%84%E5%BC%B9%E6%80%A7%E8%AE%BE%E8%AE%A1%E8%BF%9B%E4%B8%80%E6%AD%A5%E4%B8%B0%E5%AF%8C%E4%BA%86%E7%AD%96%E7%95%A5%E7%BB%B4%E5%BA%A6"><span class="toc-text">🔹 1.2 能量数值的弹性设计进一步丰富了策略维度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%83%8F-%E4%BA%8C%E3%80%81%E5%8D%A1%E7%89%8C%E6%95%B0%E5%80%BC%E4%BD%93%E7%B3%BB%EF%BC%88%E8%B4%B9%E6%95%88%E6%AF%94%EF%BC%89%EF%BC%9A%E7%B2%BE%E5%87%86%E5%AE%9A%E4%BD%8D%E4%B8%8E%E4%BB%B7%E5%80%BC%E5%B9%B3%E8%A1%A1"><span class="toc-text">🃏 二、卡牌数值体系（费效比）：精准定位与价值平衡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%9A%A0%EF%B8%8F-2-1-%E6%8F%92%E4%B8%80%E5%8F%A5%E8%AE%BE%E8%AE%A1%E7%BC%BA%E9%99%B7"><span class="toc-text">⚠️ 2.1 插一句设计缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-2-2-%E5%9C%A8%E6%94%BB%E5%87%BB%E5%8D%A1%E7%89%8C%E8%AE%BE%E8%AE%A1%E4%B8%AD"><span class="toc-text">🔹 2.2 在攻击卡牌设计中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-2-3-%E9%98%B2%E5%BE%A1%E5%8D%A1%E7%89%8C%E7%9A%84%E6%95%B0%E5%80%BC%E8%AE%BE%E8%AE%A1%E5%90%8C%E6%A0%B7%E9%81%B5%E5%BE%AA%E4%BB%B7%E5%80%BC%E6%9B%B2%E7%BA%BF%EF%BC%8C%E4%B8%94%E8%81%9A%E7%84%A6%E4%B8%B4%E6%97%B6%E9%98%B2%E6%8A%A4"><span class="toc-text">🔹 2.3 防御卡牌的数值设计同样遵循价值曲线，且聚焦临时防护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-2-4-%E5%8D%A1%E7%89%8C%E5%8D%87%E7%BA%A7%E7%9A%84%E6%95%B0%E5%80%BC%E6%8F%90%E5%8D%87%E4%B9%9F%E4%B8%A5%E6%A0%BC%E5%8C%B9%E9%85%8D%E4%BB%B7%E5%80%BC%E5%9D%87%E8%A1%A1%E5%8E%9F%E5%88%99"><span class="toc-text">🔹 2.4 卡牌升级的数值提升也严格匹配价值均衡原则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E4%B8%89%E3%80%81%E9%81%97%E7%89%A9%E6%95%B0%E5%80%BC%E8%81%94%E5%8A%A8%EF%BC%9A%E6%89%93%E7%A0%B4%E5%9F%BA%E7%A1%80%E8%A7%84%E5%88%99%E7%9A%84%E7%AD%96%E7%95%A5%E8%A3%82%E5%8F%98%E5%BC%95%E6%93%8E"><span class="toc-text">🧩 三、遗物数值联动：打破基础规则的策略裂变引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-3-1-%E6%99%AE%E9%80%9A%E9%81%97%E7%89%A9%EF%BC%9A%E8%A1%A5%E5%85%85%E7%9F%AD%E6%9D%BF%E5%92%8C%E4%BC%98%E5%8C%96%E4%BD%93%E9%AA%8C%E4%B8%BA%E4%B8%BB"><span class="toc-text">🔹 3.1 普通遗物：补充短板和优化体验为主</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-3-2-%E7%BD%95%E8%A7%81%E9%81%97%E7%89%A9%E4%B8%8EBoss%E9%81%97%E7%89%A9%E5%88%99%E9%80%9A%E8%BF%87%E6%95%B0%E5%80%BC%E8%B4%A8%E5%8F%98%E5%92%8C%E6%9C%BA%E5%88%B6%E7%AA%81%E7%A0%B4%E5%82%AC%E7%94%9F%E5%85%A8%E6%96%B0%E7%AD%96%E7%95%A5%EF%BC%8C%E5%90%8C%E6%97%B6%E5%85%BC%E9%A1%BE%E5%AF%B9%E5%8D%95%E4%B8%80%E7%AD%96%E7%95%A5%E7%9A%84%E6%8A%91%E5%88%B6"><span class="toc-text">🔹 3.2 罕见遗物与Boss遗物则通过数值质变和机制突破催生全新策略，同时兼顾对单一策略的抑制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-%E5%9B%9B%E3%80%81%E9%9A%BE%E5%BA%A6%E6%A2%AF%E5%BA%A6%E6%95%B0%E5%80%BC%EF%BC%9A%E5%8A%A8%E6%80%81%E5%B9%B3%E8%A1%A1%E7%9A%84%E2%80%9C%E5%AD%A6%E4%B9%A0%E5%9E%8B%E2%80%9D%E6%8C%91%E6%88%98%E6%9B%B2%E7%BA%BF"><span class="toc-text">📊 四、难度梯度数值：动态平衡的“学习型”挑战曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-4-1-%E8%BF%9B%E9%98%B6%E9%9A%BE%E5%BA%A6%E7%9A%84%E6%95%B0%E5%80%BC%E8%AE%BE%E8%AE%A1"><span class="toc-text">🔹 4.1 进阶难度的数值设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%94%B9-4-2-%E9%AB%98%E8%BF%9B%E9%98%B6%E7%AD%89%E7%BA%A7%E7%9A%84%E8%A7%84%E5%88%99%E7%BA%A6%E6%9D%9F"><span class="toc-text">🔹 4.2 高进阶等级的规则约束</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E7%BB%93%E8%AF%AD%EF%BC%9A%E6%95%B0%E5%80%BC%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%AD%96%E7%95%A5%E4%B9%90%E8%B6%A3%E9%97%AD%E7%8E%AF"><span class="toc-text">🎯 结语：数值驱动的策略乐趣闭环</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2%EF%BC%88%E4%B8%80%EF%BC%89"><span class="toc-text">大模型的私有化部署（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%83%A8%E7%BD%B2%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-text">一、部署前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%9F%E8%B5%81%EF%BC%88%E6%A0%B8%E5%BF%83%E5%89%8D%E6%8F%90%EF%BC%89"><span class="toc-text">1.1 服务器租赁（核心前提）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE%EF%BC%88%E6%8C%89%E5%9C%BA%E6%99%AF%E5%88%92%E5%88%86%EF%BC%89"><span class="toc-text">选择建议（按场景划分）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E4%BE%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%95%99%E5%AD%98"><span class="toc-text">1.2 服务器实例创建与信息留存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-PyCharm-Pro-%E8%BF%9C%E7%A8%8BSSH%E8%BF%9E%E6%8E%A5%EF%BC%88%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%EF%BC%89"><span class="toc-text">1.3 PyCharm Pro 远程SSH连接（高效开发必备）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-text">详细操作步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">二、模型下载与环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BB%A5Qwen3-8B-Instruct%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-text">2.1 大模型下载（以Qwen3-8B-Instruct为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E6%89%BE%E5%88%B0%E6%A8%A1%E5%9E%8B%E5%AE%98%E6%96%B9%E9%A1%B5%E9%9D%A2"><span class="toc-text">步骤1：找到模型官方页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9APython-SDK-%E4%B8%8B%E8%BD%BD%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%8C%E8%87%AA%E5%8A%A8%E5%A4%84%E7%90%86%E4%BE%9D%E8%B5%96%E4%B8%8E%E6%96%87%E4%BB%B6%E6%95%B4%E5%90%88%EF%BC%89"><span class="toc-text">步骤2：Python SDK 下载（推荐，自动处理依赖与文件整合）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85-vLLM-%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E%EF%BC%88%E9%AB%98%E9%80%9F%E6%8E%A8%E7%90%86%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="toc-text">2.2 安装 vLLM 推理引擎（高速推理核心）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-text">验证安装成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%90%AF%E5%8A%A8-OpenAI-%E5%85%BC%E5%AE%B9-API-%E6%9C%8D%E5%8A%A1"><span class="toc-text">三、启动 OpenAI 兼容 API 服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E5%A4%8D%E5%88%B6%E5%8D%B3%E5%8F%AF%E4%BD%BF%E7%94%A8%EF%BC%8C%E9%9C%80%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9E%8B%E8%B7%AF%E5%BE%84%EF%BC%89"><span class="toc-text">3.1 启动命令（复制即可使用，需修改模型路径）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%88%E5%BF%85%E7%9C%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%90%8E%E7%BB%AD%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-text">核心参数说明（必看，方便后续自定义配置）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F%E6%A0%87%E8%AF%86"><span class="toc-text">启动成功标识</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-API-%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%EF%BC%88%E9%AA%8C%E8%AF%81%E9%83%A8%E7%BD%B2%E6%95%88%E6%9E%9C%EF%BC%89"><span class="toc-text">3.2 API 服务测试（验证部署效果）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%951%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-text">测试1：基础模型列表查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%952%EF%BC%9A%E5%AF%B9%E8%AF%9D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%EF%BC%88%E5%AE%9E%E9%99%85%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E5%9B%9E%E5%A4%8D%EF%BC%89"><span class="toc-text">测试2：对话功能测试（实际调用模型生成回复）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-text">四、常见问题与避坑指南</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -196,7 +277,7 @@
 
 <script type="text/javascript">
   window.canonical = {"closeEnable":true,"closeText":"关闭提示","originalHost":null,"officialHosts":["localhost"],"encoded":""};
-  window.canonical["param"] = {"permalink":"https://yifei-huang-cos.github.io/posts/eff9c8a5/","checklink":"/js/plugins/video.js"};
+  window.canonical["param"] = {"permalink":"https://yifei-huang-cos.github.io/posts/fa00b5a1/","checklink":"/js/plugins/video.js"};
   const ctx = {
     date_suffix: {
       just: `刚刚`,
