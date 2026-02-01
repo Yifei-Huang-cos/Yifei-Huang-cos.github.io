@@ -28,7 +28,7 @@
 <meta property="og:description" content="提示词工程初步（一）部署好大模型之后，我们可以用其做一些简单的问答，但如何让回答更接近我们想要的方式，这就需要用到提示词（Prompt）与提示词工程（Prompt Engineering）。通过合理设计、组织提示词，可以显著提升大模型输出的准确性、结构化程度与业务贴合度。本文基于 LangChain 框架，从基础模板到少样本学习，逐步介绍提示词工程的入门实践。 一、最简单的提示词模板：Prompt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-01T07:40:30.000Z">
-<meta property="article:modified_time" content="2026-02-01T08:52:43.955Z">
+<meta property="article:modified_time" content="2026-02-01T08:53:19.187Z">
 <meta property="article:author" content="黄逸飞">
 <meta name="twitter:card" content="summary">
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-02-01T15:40:30+08:00","dateModified":"2026-02-01T16:52:43+08:00","datePublished":"2026-02-01T15:40:30+08:00","description":"","headline":"提示词工程初步（一）","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/f57bf148/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/f57bf148/","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull"},"dateCreated":"2026-02-01T15:40:30+08:00","dateModified":"2026-02-01T16:53:19+08:00","datePublished":"2026-02-01T15:40:30+08:00","description":"","headline":"提示词工程初步（一）","mainEntityOfPage":{"@type":"WebPage","@id":"https://yifei-huang-cos.github.io/posts/f57bf148/"},"publisher":{"@type":"Organization","name":"黄逸飞","sameAs":[],"image":"https://yifei-huang-cos.github.ionull","logo":{"@type":"ImageObject","url":"https://yifei-huang-cos.github.ionull"}},"url":"https://yifei-huang-cos.github.io/posts/f57bf148/","image":[]}</script>
   <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
 </head>
 <body>
@@ -99,7 +99,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-01T07:40:30.000Z">2026-02-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-01T08:52:43.955Z">2026-02-01</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2026-02-01T07:40:30.000Z">2026-02-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-01T08:53:19.187Z">2026-02-01</time></span></div></div></div>
     
     <div class="bottom only-title">
       
