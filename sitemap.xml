@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yifei-huang-cos.github.io/posts/50b3b349/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yifei-huang-cos.github.io/posts/105e3bfd/</loc>
     
     <lastmod>2026-02-05</lastmod>
@@ -139,14 +148,14 @@
 
   
   <url>
-    <loc>https://yifei-huang-cos.github.io/categories/%E6%B8%B8%E6%88%8F/</loc>
+    <loc>https://yifei-huang-cos.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yifei-huang-cos.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://yifei-huang-cos.github.io/categories/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
