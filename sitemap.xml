@@ -130,7 +130,7 @@
 
   <url>
     <loc>https://yifei-huang-cos.github.io/</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -139,15 +139,15 @@
 
   
   <url>
-    <loc>https://yifei-huang-cos.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2026-02-05</lastmod>
+    <loc>https://yifei-huang-cos.github.io/categories/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yifei-huang-cos.github.io/categories/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2026-02-05</lastmod>
+    <loc>https://yifei-huang-cos.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
